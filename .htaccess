@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Bloquer l'accès direct au stockage
+RewriteRule ^storage/ - [F,L]
+
+# Redirection vers index.php si fichier inexistant
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L,QSA]
